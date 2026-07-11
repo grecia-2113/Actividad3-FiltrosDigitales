@@ -1,0 +1,32 @@
+Python 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+... plt.plot(t,band,color='purple')
+... plt.title("Filtro Pasa Bandas")
+... plt.grid()
+...
+... plt.tight_layout()
+... plt.show()
+...
+... # ===========================================
+... # Respuesta en frecuencia
+... # ===========================================
+...
+... plt.figure(figsize=(12,5))
+...
+... for b,a,nombre in [
+...     (b_low,a_low,"Pasa Bajas"),
+...     (b_high,a_high,"Pasa Altas"),
+...     (b_band,a_band,"Pasa Bandas")
+... ]:
+...
+...     w,h=freqz(b,a)
+...
+...     plt.plot((w/np.pi)*(fs/2),20*np.log10(abs(h)),label=nombre)
+...
+... plt.title("Respuesta en Frecuencia")
+... plt.xlabel("Frecuencia (Hz)")
+... plt.ylabel("Magnitud (dB)")
+... plt.grid()
+... plt.legend()
+... plt.show()
+...
